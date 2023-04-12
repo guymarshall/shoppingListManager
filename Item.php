@@ -3,8 +3,24 @@
 class Item
 {
 
-    public function __construct(private string $name, private string $description, private int $quantity = 1, private int $price, private DateTime $createdDateTime, private DateTime $editedDateTime)
+    public function __construct(private int $itemID, private string $name, private string $description, private int $quantity = 1, private int $price, private DateTime $createdDateTime, private DateTime $editedDateTime)
     {
+    }
+
+    /**
+     * @return int
+     */
+    public function getItemID(): int
+    {
+        return $this->itemID;
+    }
+
+    /**
+     * @param int $itemID
+     */
+    public function setItemID(int $itemID): void
+    {
+        $this->itemID = $itemID;
     }
 
     /**
