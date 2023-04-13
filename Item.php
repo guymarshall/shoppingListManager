@@ -58,22 +58,6 @@ class Item
     /**
      * @return int
      */
-    public function getQuantity(): int
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @param int $quantity
-     */
-    public function setQuantity(int $quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
-    /**
-     * @return int
-     */
     public function getPrice(): int
     {
         return $this->price;
@@ -117,5 +101,21 @@ class Item
     public function setEditedDateTime(DateTime $editedDateTime): void
     {
         $this->editedDateTime = $editedDateTime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }
