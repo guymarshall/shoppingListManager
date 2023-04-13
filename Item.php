@@ -3,7 +3,7 @@
 class Item
 {
 
-    public function __construct(private int $itemID, private string $name, private string $description, private int $quantity = 1, private int $price, private DateTime $createdDateTime, private DateTime $editedDateTime)
+    public function __construct(private int $itemID, private string $name, private string $description, private int $price, private DateTime $createdDateTime, private DateTime $editedDateTime, private int $quantity = 1)
     {
     }
 
