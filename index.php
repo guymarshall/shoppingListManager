@@ -7,3 +7,26 @@
  * The line items should be persisted, so that all details are available when the program is next restarted.
  * Each line item should also have an automatically-generated ID for the user to use for edit and delete.
  */
+
+// include the SQLiteDB.php file
+require_once 'SQLiteDB.php';
+
+// Create a new SQLiteDB object
+$db = new SQLiteDB(new SQLite3('database.db'));
+
+// Execute an SQL query
+$result = $db->query('SELECT * FROM mytable');
+
+// Prepare a statement and bind parameters
+$stmt = $db->prepare('INSERT INTO mytable (name, email) VALUES (:name, :email)');
+$db->bindValue($stmt, ':name', 'John');
+$db->bindValue($stmt, ':email', 'john@example.com');
+
+// Execute the statement
+$db->execute($stmt);
+
+// Fetch all rows from a result set
+$rows = $db->fetchAll($result);
+
+// Get the ID of the last inserted row
+$id = $db->lastInsertRowID();
