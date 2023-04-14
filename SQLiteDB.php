@@ -20,8 +20,12 @@ class SQLiteDB
         return $stmt->execute();
     }
 
-    public function fetchAll(SQLite3Result $result): array|false {
-        return $result->fetchAll(SQLITE3_ASSOC);
+    public function fetchAll(SQLite3Result $result): array {
+        $rows = array();
+        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+            $rows[] = $row;
+        }
+        return $rows;
     }
 
     public function lastInsertRowID(): int {
