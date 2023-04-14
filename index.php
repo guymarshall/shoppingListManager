@@ -12,21 +12,21 @@
 require_once 'SQLiteDB.php';
 
 // Create a new SQLiteDB object
-$db = new SQLiteDB(new SQLite3('database.db'));
+$database = new SQLiteDB(new SQLite3('database.db'));
 
 // Execute an SQL query
-$result = $db->query('SELECT * FROM mytable');
+$result = $database->query('SELECT * FROM mytable');
 
 // Prepare a statement and bind parameters
-$stmt = $db->prepare('INSERT INTO mytable (name, email) VALUES (:name, :email)');
-$db->bindValue($stmt, ':name', 'John');
-$db->bindValue($stmt, ':email', 'john@example.com');
+$stmt = $database->prepare('INSERT INTO mytable (name, email) VALUES (:name, :email)');
+$database->bindValue($stmt, ':name', 'John');
+$database->bindValue($stmt, ':email', 'john@example.com');
 
 // Execute the statement
-$db->execute($stmt);
+$database->execute($stmt);
 
 // Fetch all rows from a result set
-$rows = $db->fetchAll($result);
+$rows = $database->fetchAll($result);
 
 // Get the ID of the last inserted row
-$id = $db->lastInsertRowID();
+$id = $database->lastInsertRowID();
