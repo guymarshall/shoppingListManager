@@ -18,12 +18,12 @@ $database = new SQLiteDB(new SQLite3('database.db'));
 $result = $database->query('SELECT * FROM mytable');
 
 // Prepare a statement and bind parameters
-$stmt = $database->prepare('INSERT INTO mytable (name, email) VALUES (:name, :email)');
-$database->bindValue($stmt, ':name', 'John');
-$database->bindValue($stmt, ':email', 'john@example.com');
+$statement = $database->prepare('INSERT INTO mytable (name, email) VALUES (:name, :email)');
+$database->bindValue($statement, ':name', 'John');
+$database->bindValue($statement, ':email', 'john@example.com');
 
 // Execute the statement
-$database->execute($stmt);
+$database->execute($statement);
 
 // Fetch all rows from a result set
 $rows = $database->fetchAll($result);
